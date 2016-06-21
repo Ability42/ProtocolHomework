@@ -40,7 +40,6 @@
     runnerObj.stepSize = 2.05;
     runnerObj.name = @"Usain Bolt";
     
-    
     Swimmer* swimmerObj = [[Swimmer alloc] init];
     swimmerObj.name = @"Genry Taylor";
     Shark* sharkObj = [[Shark alloc] init];
@@ -58,25 +57,38 @@
         
         // check subsc. class on protocol
         if ([fellow conformsToProtocol:@protocol(Swimmers)]) {
-            id <Jumpers> jumper = fellow;
-            if ([jumper respondsToSelector:@selector(jump)]){
-                [jumper jump];
+            id <Jumpers> tmpJumper = fellow;
+            if ([tmpJumper respondsToSelector:@selector(jump)]){
+                [tmpJumper jump];
             }
-            NSLog(@"%@", jumper);
+            NSLog(@"%@", tmpJumper);
             
         }
         
+        // check subsc. class on protocol
         if ([fellow conformsToProtocol:@protocol(Jumpers)]) {
-            id <Swimmers> swimmer = fellow;
+            id <Swimmers> tmpSwimmer = fellow;
             
-            if ([swimmer respondsToSelector:@selector(swim:)]) {
-                [swimmer swim:42];
+            if ([tmpSwimmer respondsToSelector:@selector(swim:)]) {
+                [tmpSwimmer swim:42];
             }
-            if ([swimmer respondsToSelector:@selector(diveInto:)]) {
-                [swimmer diveInto:7.1];
+            if ([tmpSwimmer respondsToSelector:@selector(diveInto:)]) {
+                [tmpSwimmer diveInto:7.1];
             }
-            NSLog(@"%@", swimmer);
+            NSLog(@"%@", tmpSwimmer);
         }
+        
+        // check subsc. class on protocol
+        if ([fellow conformsToProtocol:@protocol(Runners)]) {
+            id <Runners> tmpRunner =fellow;
+            
+            if ([tmpRunner respondsToSelector:@selector(run)]) {
+                [tmpRunner run];
+            }
+            
+            NSLog(@"%@", tmpRunner);
+            
+        } else {NSLog(@"Bummer😣!");}
     }
     
     return YES;
