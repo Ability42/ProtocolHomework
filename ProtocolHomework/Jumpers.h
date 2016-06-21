@@ -11,6 +11,7 @@
 
 @protocol Jumpers <NSObject>
 
+@required
 @property (assign, nonatomic) double distance;
 @property (assign, nonatomic) double hightScore;
 

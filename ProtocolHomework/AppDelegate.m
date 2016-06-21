@@ -36,22 +36,30 @@
     // Override point for customization after application launch.
 
     Runner* runnerObj = [[Runner alloc] init];
-    runnerObj.speed = 32;
-    runnerObj.stepSize = 2.05;
+    runnerObj.speed = 32.000;
+    runnerObj.stepSize = 2.050;
     runnerObj.name = @"Usain Bolt";
     
     Swimmer* swimmerObj = [[Swimmer alloc] init];
-    swimmerObj.name = @"Usame Bolt";
+    swimmerObj.name = @"Genry Taylor";
     swimmerObj.style = swimmingStyleButterfly;
     swimmerObj.lungCapacity = 5.400;
     
-    swimmerObj.name = @"Genry Taylor";
+
     Shark* sharkObj = [[Shark alloc] init];
     sharkObj.name = @"Sharpy teeth";
+    sharkObj.lungCapacity = 15.000;
+    sharkObj.style = swimmingStyleFree;
+    
     Kangaroo* kangarooObj = [[Kangaroo alloc] init];
-    kangarooObj.name = @"Boxer #1";
+    kangarooObj.name = @"Rokkie";
+    kangarooObj.distance = 105.000;
+    kangarooObj.hightScore = 50095.00;
+    
     Antelope* antelopeObj = [[Antelope alloc] init];
     antelopeObj.name = @"Antelope Gnu";
+    antelopeObj.stepSize = 12.75;
+    antelopeObj.speed = 120.45;
 
     
     
@@ -65,9 +73,11 @@
             
             if ([tmpJumper respondsToSelector:@selector(jump)]){
                 [tmpJumper jump];
+                [tmpJumper distance];
+                [tmpJumper hightScore];
             }
             
-            NSLog(@"%@", tmpJumper);
+            // NSLog(@"%@", tmpJumper);
             
         }
         
@@ -80,9 +90,11 @@
             }
             if ([tmpSwimmer respondsToSelector:@selector(diveInto:)]) {
                 [tmpSwimmer diveInto:7.1];
+                [tmpSwimmer lungCapacity];
+                [tmpSwimmer style];
             }
             
-            NSLog(@"%@", tmpSwimmer);
+            // NSLog(@"%@", tmpSwimmer);
         }
         
         // check subsc. class on protocol
@@ -91,9 +103,11 @@
             
             if ([tmpRunner respondsToSelector:@selector(run)]) {
                 [tmpRunner run];
+                [tmpRunner speed];
+                [tmpRunner stepSize];
             }
             
-            NSLog(@"%@", tmpRunner);
+            // NSLog(@"%@", tmpRunner);
             
         } else {NSLog(@"Bummer😣!");}
     }
