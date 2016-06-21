@@ -41,6 +41,10 @@
     runnerObj.name = @"Usain Bolt";
     
     Swimmer* swimmerObj = [[Swimmer alloc] init];
+    swimmerObj.name = @"Usame Bolt";
+    swimmerObj.style = swimmingStyleButterfly;
+    swimmerObj.lungCapacity = 5.400;
+    
     swimmerObj.name = @"Genry Taylor";
     Shark* sharkObj = [[Shark alloc] init];
     sharkObj.name = @"Sharpy teeth";
@@ -56,11 +60,13 @@
     for (id <Jumpers, Swimmers, Runners> fellow in group) {
         
         // check subsc. class on protocol
-        if ([fellow conformsToProtocol:@protocol(Swimmers)]) {
+        if ([fellow conformsToProtocol:@protocol(Jumpers)]) {
             id <Jumpers> tmpJumper = fellow;
+            
             if ([tmpJumper respondsToSelector:@selector(jump)]){
                 [tmpJumper jump];
             }
+            
             NSLog(@"%@", tmpJumper);
             
         }
@@ -75,6 +81,7 @@
             if ([tmpSwimmer respondsToSelector:@selector(diveInto:)]) {
                 [tmpSwimmer diveInto:7.1];
             }
+            
             NSLog(@"%@", tmpSwimmer);
         }
         
